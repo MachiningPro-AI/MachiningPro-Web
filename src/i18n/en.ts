@@ -13,8 +13,8 @@ export const en = {
 
   hero: {
     badge: 'Engineering Preview · v0.5.0-demo',
-    headline: 'Engineering Intelligence for Machining & Manufacturing Planning',
-    subheadline: 'An engineering decision-support platform connecting technical drawings, CAD data, machining processes, manufacturing planning, quality and traceability.',
+    headline: 'Engineering Intelligence for CNC Machining & Manufacturing Planning',
+    subheadline: 'An engineering decision-support platform connecting technical drawings, CAD data, CNC machining processes, cutting parameters, manufacturing planning, quality and traceability.',
     ctaPrimary: 'Launch Live Demo',
     ctaSecondary: 'Explore Capabilities',
   },
@@ -365,6 +365,264 @@ export const en = {
     },
     disclaimer: 'MachiningPro AI is an engineering decision-support platform at Engineering Preview stage (v0.5.0-demo). It is not validated for production release approval or safety-critical use without independent engineering review. All engineering decisions remain the responsibility of the qualified engineer using the platform.',
     copyright: '© 2026 MachiningPro AI. All rights reserved.',
+  },
+
+  machiningProcesses: {
+    sectionLabel: 'CNC Machining Processes',
+    title: 'Machining Process Engineering',
+    subtitle: 'MachiningPro AI structures engineering knowledge across all primary CNC machining operations — from rough turning to precision finishing.',
+    processes: [
+      {
+        id: 'turning',
+        title: 'Turning',
+        desc: 'Cylindrical material removal by rotating the workpiece against a stationary cutting insert. Covers rough turning, finish turning, facing, parting and profiling.',
+        params: ['Vc (m/min)', 'f (mm/rev)', 'ap (mm)', 'Insert geometry'],
+      },
+      {
+        id: 'milling',
+        title: 'Milling',
+        desc: 'Rotating multi-edge cutter removes material from a stationary workpiece. Covers face milling, pocket milling, contour milling and shoulder milling.',
+        params: ['Vc (m/min)', 'fz (mm/tooth)', 'z (edges)', 'ae (mm)', 'ap (mm)'],
+      },
+      {
+        id: 'drilling',
+        title: 'Drilling',
+        desc: 'Axial penetration of a rotating drill to create cylindrical holes. Covers through holes, blind holes, spot drilling and step drilling.',
+        params: ['Vc (m/min)', 'f (mm/rev)', 'ap = D/2', 'Point geometry'],
+      },
+      {
+        id: 'boring',
+        title: 'Boring',
+        desc: 'Single-point enlargement and finishing of an existing hole to achieve precise diameter, roundness and surface finish.',
+        params: ['Vc (m/min)', 'f (mm/rev)', 'ap (mm)', 'Boring bar', 'IT grade'],
+      },
+      {
+        id: 'threading',
+        title: 'Threading',
+        desc: 'Formation of helical thread profiles by single-point threading tools, taps or thread milling cutters. Covers external and internal threads.',
+        params: ['Pitch (mm)', 'Thread form', 'Vc (m/min)', 'Infeed strategy'],
+      },
+      {
+        id: 'finishing',
+        title: 'Precision Finishing',
+        desc: 'Final material removal passes to achieve tight dimensional tolerances and required surface finish Ra/Rz values.',
+        params: ['Ra (µm)', 'Rz (µm)', 'rε nose radius', 'f (mm/rev)', 'ap (mm)'],
+      },
+    ],
+  },
+
+  machineTool: {
+    sectionLabel: 'Machine Tool Intelligence',
+    title: 'Machine Tool Engineering',
+    subtitle: 'Structured machine capability data covering spindle performance, axis configuration, work envelope and tooling capacity.',
+    machines: [
+      {
+        title: 'CNC Lathe',
+        config: 'C-axis / Driven tools',
+        specs: ['Spindle speed range', 'Spindle power & torque', 'Chuck diameter / bar capacity', 'Z-axis travel', 'X-axis cross slide', 'Tailstock'],
+      },
+      {
+        title: '3-Axis Machining Centre',
+        config: 'X/Y/Z vertical',
+        specs: ['Spindle speed (max)', 'Spindle power / torque', 'Table size (X × Y)', 'Z-axis stroke', 'Tool magazine capacity', 'ATC time'],
+      },
+      {
+        title: '5-Axis Machining Centre',
+        config: 'X/Y/Z + A/B or A/C',
+        specs: ['Simultaneous 5-axis', 'Tilt / rotary range', 'Spindle speed', 'Table diameter / capacity', 'Volumetric accuracy', 'Tool magazine'],
+      },
+      {
+        title: 'Horizontal Machining Centre',
+        config: 'X/Y/Z + B-axis pallet',
+        specs: ['Pallet size', 'Spindle speed', 'Spindle power', 'X/Y/Z travel', 'B-axis resolution', 'APC (dual pallet)'],
+      },
+      {
+        title: 'Turn-Mill Centre',
+        config: 'C/Y-axis + milling spindle',
+        specs: ['Main & sub spindle', 'Y-axis travel', 'Milling spindle speed', 'Bar capacity', 'Driven tool stations', 'B-axis (optional)'],
+      },
+    ],
+    disclaimer: 'Machine capability parameters are illustrative. Actual values depend on specific machine models and configurations.',
+    disclaimerTr: 'Tezgâh kapasite parametreleri örnektir. Gerçek değerler belirli makine modellerine ve konfigürasyonlara bağlıdır.',
+  },
+
+  cuttingTool: {
+    sectionLabel: 'Cutting Tool Engineering',
+    title: 'Cutting Tool Engineering',
+    subtitle: 'Structured cutting tool knowledge — insert geometry, tool holders, material grades, coatings and application parameters.',
+    categories: [
+      {
+        title: 'Turning Insert',
+        desc: 'Indexable carbide insert for turning operations. Key parameters: shape (CNMG, DNMG, WNMG), size, nose radius rε, cutting edge angle, coating.',
+        attrs: ['ISO shape code', 'Nose radius rε (mm)', 'Grade / coating', 'Cutting edge angle', 'Chip breaker'],
+      },
+      {
+        title: 'Turning Tool Holder',
+        desc: 'External tool holder that locates the insert and clamps it to the machine turret. Determines cutting direction and approach angle.',
+        attrs: ['ISO designation', 'Shank size (h × b)', 'Insert clamping', 'Approach angle κ', 'Lead angle λ'],
+      },
+      {
+        title: 'Indexable Milling Cutter',
+        desc: 'Face or shoulder milling cutter with indexable inserts. Multiple cutting edges, replaceable inserts.',
+        attrs: ['Diameter D (mm)', 'Number of inserts z', 'Insert geometry', 'Spindle interface', 'Max depth ap'],
+      },
+      {
+        title: 'Solid Carbide End Mill',
+        desc: 'Solid carbide cutter for precise milling, profiling and pocketing operations.',
+        attrs: ['Diameter D (mm)', 'Flute count z', 'Helix angle', 'Corner radius rε', 'Coating', 'Shank type'],
+      },
+      {
+        title: 'Twist Drill',
+        desc: 'Standard drill for hole-making operations. Point geometry and flute design determine chip evacuation.',
+        attrs: ['Diameter D (mm)', 'Point angle', 'Flute geometry', 'Grade / coating', 'Tolerance class'],
+      },
+      {
+        title: 'Boring Bar',
+        desc: 'Single-point internal boring tool for precision hole enlargement and finishing.',
+        attrs: ['Min bore diameter', 'Max boring depth', 'Insert type', 'Anti-vibration', 'Shank interface'],
+      },
+    ],
+  },
+
+  materialRemoval: {
+    sectionLabel: 'Material Removal Mechanics',
+    title: 'Material Removal Mechanics',
+    subtitle: 'Deterministic engineering equations govern cutting speed, feed rate, spindle speed and material removal rate in every machining operation.',
+    turningTitle: 'Turning Mechanics',
+    millingTitle: 'Milling Mechanics',
+    formulas: [
+      { label: 'Cutting Speed (Turning)', eq: 'Vc = π × D × n / 1000', unit: 'm/min', vars: 'D = diameter [mm], n = spindle speed [rpm]' },
+      { label: 'Spindle Speed', eq: 'n = 1000 × Vc / (π × D)', unit: 'rpm', vars: 'Vc = cutting speed [m/min], D = diameter [mm]' },
+      { label: 'Feed Rate', eq: 'Vf = f × n', unit: 'mm/min', vars: 'f = feed per revolution [mm/rev], n = spindle speed [rpm]' },
+      { label: 'Milling Feed Rate', eq: 'Vf = fz × z × n', unit: 'mm/min', vars: 'fz = feed per tooth [mm/tooth], z = number of teeth, n = spindle speed [rpm]' },
+      { label: 'Material Removal Rate (Turning)', eq: 'Q = ap × f × Vc', unit: 'cm³/min', vars: 'ap = depth of cut [mm], f = feed [mm/rev], Vc = cutting speed [m/min]' },
+    ],
+    labels: {
+      workpiece: 'Workpiece',
+      tool: 'Cutting Tool',
+      edge: 'Cutting Edge',
+      chip: 'Chip',
+      vc: 'Cutting Speed Vc',
+      feed: 'Feed f',
+      ap: 'Depth of Cut ap',
+      force: 'Cutting Force',
+      fz: 'Feed per Tooth fz',
+      z: 'Number of Teeth z',
+      ae: 'Width of Cut ae',
+    },
+  },
+
+  cuttingParamFlow: {
+    sectionLabel: 'Cutting Parameter Selection',
+    title: 'Cutting Parameter Intelligence',
+    subtitle: 'Structured parameter selection from material and operation through to validated cutting data — deterministic engineering, not guesswork.',
+    steps: [
+      { label: 'Material', detail: 'Workpiece material grade, hardness, machinability' },
+      { label: 'Operation', detail: 'Turning / Milling / Drilling / Boring / Threading' },
+      { label: 'Machine Capability', detail: 'Spindle power, speed range, rigidity, stability' },
+      { label: 'Cutting Tool', detail: 'Insert grade, geometry, coating, nose radius' },
+      { label: 'Cutting Speed Vc', detail: 'Vc [m/min] — material × tool grade recommendation' },
+      { label: 'Spindle Speed n', detail: 'n = 1000 × Vc / (π × D) [rpm]' },
+      { label: 'Feed f / fz', detail: 'Feed per rev [mm/rev] or feed per tooth [mm/tooth]' },
+      { label: 'Feed Rate Vf', detail: 'Vf = f × n or fz × z × n [mm/min]' },
+      { label: 'Depths ap / ae', detail: 'Depth of cut [mm] and width of cut [mm]' },
+      { label: 'Tool Life Check', detail: 'Taylor equation — estimated tool life validation' },
+      { label: 'Surface Roughness', detail: 'Ra = f² / (8 × rε) [µm] — finish prediction' },
+      { label: 'Process Capability', detail: 'Cp / Cpk assessment against tolerance requirements' },
+    ],
+  },
+
+  engineeringCharts: {
+    sectionLabel: 'Engineering Analysis',
+    title: 'Engineering Relationships',
+    subtitle: 'Formula-derived engineering relationships — not measured field data.',
+    illustrativeNote: 'Illustrative engineering relationship',
+    illustrativeNoteTr: 'Örnek mühendislik ilişkisi',
+    charts: [
+      {
+        title: 'Spindle Speed vs Workpiece Diameter',
+        desc: 'n = 1000 × Vc / (π × D) at constant Vc. Smaller diameters require higher spindle speeds to maintain cutting speed.',
+        xLabel: 'Diameter D (mm)',
+        yLabel: 'Spindle Speed n (rpm)',
+      },
+      {
+        title: 'Feed Rate vs Spindle Speed',
+        desc: 'Vf = f × n. Feed rate increases linearly with spindle speed at constant feed per revolution.',
+        xLabel: 'Spindle Speed n (rpm)',
+        yLabel: 'Feed Rate Vf (mm/min)',
+      },
+      {
+        title: 'Milling Feed Rate — Effect of Tooth Count',
+        desc: 'Vf = fz × z × n. Higher tooth count z increases feed rate proportionally at same fz and n.',
+        xLabel: 'Spindle Speed n (rpm)',
+        yLabel: 'Feed Rate Vf (mm/min)',
+      },
+      {
+        title: 'Conceptual Tool Wear Progression',
+        desc: 'Conceptual / normalized tool-wear progression showing break-in, steady wear and accelerating wear phases.',
+        xLabel: 'Machining Time',
+        yLabel: 'Flank Wear VB',
+      },
+    ],
+  },
+
+  surfaceRoughness: {
+    sectionLabel: 'Surface Quality Engineering',
+    title: 'Surface Quality Engineering',
+    subtitle: 'Surface finish is a direct engineering output of cutting parameters, tool geometry and cutting conditions.',
+    formula: 'Ra ≈ f² / (8 × rε)',
+    formulaDesc: 'Theoretical surface roughness formula for turning. Ra in µm, f = feed per revolution [mm/rev], rε = nose radius [mm].',
+    labels: {
+      ra: 'Ra (arithmetic mean roughness)',
+      rz: 'Rz (mean roughness depth)',
+      feedMarks: 'Feed marks',
+      noseRadius: 'Tool nose radius rε',
+      peakToValley: 'Peak-to-valley height',
+      direction: 'Lay direction',
+    },
+    factors: [
+      { title: 'Feed Rate', desc: 'Higher feed per revolution increases surface roughness. Ra increases as f².' },
+      { title: 'Nose Radius rε', desc: 'Larger nose radius reduces theoretical Ra. A 0.8 mm radius gives finer finish than 0.4 mm at the same feed.' },
+      { title: 'Tool Condition', desc: 'Worn cutting edge increases Ra values. Tool wear monitoring is essential for consistent surface quality.' },
+      { title: 'Cutting Speed', desc: 'At appropriate cutting speeds, built-up edge is avoided, giving consistent surface finish.' },
+      { title: 'Vibration / Chatter', desc: 'Machine and workpiece rigidity directly affects achievable surface finish. Chatter produces characteristic regular defects.' },
+    ],
+  },
+
+  processRoute: {
+    sectionLabel: 'Process Route Engineering',
+    title: 'Manufacturing Process Route',
+    subtitle: 'Structured process routing for a synthetic stepped shaft / valve spool — illustrating end-to-end manufacturing sequence.',
+    partName: 'Synthetic Stepped Shaft (Non-proprietary)',
+    operations: [
+      { op: '00', name: 'Raw Material', detail: 'Ø60 × 180mm bar stock, C45 steel', icon: 'raw' },
+      { op: '05', name: 'Saw Cut', detail: 'Cut to length + allowance', icon: 'saw' },
+      { op: '10', name: 'CNC Rough Turning', detail: 'Rough turn OD, face both ends, centre drill', icon: 'turn' },
+      { op: '20', name: 'CNC Finish Turning', detail: 'Finish turn Ø50 ±0.02, Ø40 ±0.02, chamfers, radii', icon: 'finish' },
+      { op: '25', name: 'Grooving', detail: 'Ø46 × 4mm groove for circlip', icon: 'groove' },
+      { op: '30', name: 'Drilling / Internal Feature', detail: 'Ø12 axial hole × 60mm depth', icon: 'drill' },
+      { op: '40', name: 'Deburring', detail: 'Manual deburring all edges and cross holes', icon: 'deburr' },
+      { op: '50', name: 'Inspection', detail: 'Dimensional check per drawing. Record Cp/Cpk for critical features', icon: 'inspect' },
+      { op: '55', name: 'Engineering Record', detail: 'Traceability record: material cert, tooling, parameters, results', icon: 'record' },
+    ],
+    synthetic: 'Synthetic non-proprietary geometry for illustration only.',
+  },
+
+  shopFloor: {
+    sectionLabel: 'Engineering to Shop Floor',
+    title: 'From Engineering Office to Shop Floor',
+    subtitle: 'MachiningPro AI structures the engineering knowledge chain — from technical drawing to machined and inspected part with full traceability.',
+    steps: [
+      { label: 'Engineering Drawing', desc: 'Technical drawing with dimensions, tolerances, surface finish, GD&T' },
+      { label: 'CAD Model', desc: 'IGES / STEP / DXF import, geometry extraction, feature recognition' },
+      { label: 'Machine Selection', desc: 'Structured machine capability assessment and selection' },
+      { label: 'Cutting Tool', desc: 'Insert, holder and tooling configuration with compatibility check' },
+      { label: 'Process Plan', desc: 'Operation sequence, setups, cutting parameters, cycle time' },
+      { label: 'NC Review', desc: 'Engineering review of NC programme against process intent' },
+      { label: 'Machining', desc: 'CNC execution by the machine operator with approved process data' },
+      { label: 'Inspection', desc: 'Dimensional and surface finish inspection against drawing requirements' },
+      { label: 'Traceability', desc: 'Full engineering record: material, machine, tooling, parameters, results' },
+    ],
   },
 }
 

@@ -15,8 +15,8 @@ export const tr: Translations = {
 
   hero: {
     badge: 'Mühendislik Önizlemesi · v0.5.0-demo',
-    headline: 'Talaşlı İmalat ve Üretim Planlama için Mühendislik Zekâsı',
-    subheadline: 'Teknik resimler, CAD verileri, işleme süreçleri, üretim planlama, kalite ve izlenebilirliği bir araya getiren mühendislik karar destek platformu.',
+    headline: 'CNC Talaşlı İmalat ve Üretim Planlama için Mühendislik Zekâsı',
+    subheadline: 'Teknik resimler, CAD verileri, CNC talaşlı imalat prosesleri, kesme parametreleri, üretim planlama, kalite ve izlenebilirliği bir araya getiren mühendislik karar destek platformu.',
     ctaPrimary: 'Canlı Demoyu Aç',
     ctaSecondary: 'Yetenekleri İncele',
   },
@@ -367,5 +367,263 @@ export const tr: Translations = {
     },
     disclaimer: 'MachiningPro AI, Mühendislik Önizleme aşamasında (v0.5.0-demo) bir mühendislik karar destek platformudur. Bağımsız mühendislik incelemesi olmaksızın üretim serbest bırakma onayı veya güvenlik açısından kritik kullanım için doğrulanmamıştır. Tüm mühendislik kararları, platformu kullanan yetkili mühendisin sorumluluğundadır.',
     copyright: '© 2026 MachiningPro AI. Tüm hakları saklıdır.',
+  },
+
+  machiningProcesses: {
+    sectionLabel: 'CNC Talaşlı İmalat Prosesleri',
+    title: 'İmalat Prosesi Mühendisliği',
+    subtitle: 'MachiningPro AI, kaba tornalamadan hassas son işlemeye kadar tüm temel CNC talaşlı imalat operasyonlarında mühendislik bilgisini yapılandırır.',
+    processes: [
+      {
+        id: 'turning',
+        title: 'Tornalama',
+        desc: 'İş parçasının döndürülerek sabit kesici uçla silindirsel talaş kaldırma işlemi. Kaba tornalama, finiş tornalama, alın tornalama, kesme ve profil tornalamasını kapsar.',
+        params: ['Vc (m/dak)', 'f (mm/dev)', 'ap (mm)', 'Kesici uç geometrisi'],
+      },
+      {
+        id: 'milling',
+        title: 'Frezeleme',
+        desc: 'Dönen çok kenarlı freze, sabit duran iş parçasından talaş kaldırır. Alın frezeleme, cep frezeleme, kontur frezeleme ve omuz frezelemeyi kapsar.',
+        params: ['Vc (m/dak)', 'fz (mm/diş)', 'z (kenar sayısı)', 'ae (mm)', 'ap (mm)'],
+      },
+      {
+        id: 'drilling',
+        title: 'Delik Delme',
+        desc: 'Dönen matkabın eksenel ilerlemeyle silindirik delik açması. Kör delik, düz delik, noktalama ve kademeli delmeyi kapsar.',
+        params: ['Vc (m/dak)', 'f (mm/dev)', 'ap = D/2', 'Uç geometrisi'],
+      },
+      {
+        id: 'boring',
+        title: 'Boralama',
+        desc: 'Mevcut bir deliğin hassas çap, yuvarlıklık ve yüzey kalitesine ulaşmak için tek noktalı kesiciyle büyütülmesi ve bitirilmesi.',
+        params: ['Vc (m/dak)', 'f (mm/dev)', 'ap (mm)', 'Boralama çubuğu', 'IT toleransı'],
+      },
+      {
+        id: 'threading',
+        title: 'Diş Açma',
+        desc: 'Tek noktalı diş açma takımı, kılavuz veya diş frezeleme ile helisel diş profillerinin oluşturulması. Dış ve iç diş açmayı kapsar.',
+        params: ['Hatve (mm)', 'Diş formu', 'Vc (m/dak)', 'İlerleme stratejisi'],
+      },
+      {
+        id: 'finishing',
+        title: 'Hassas Son İşleme',
+        desc: 'Sıkı boyutsal toleranslar ve gerekli Ra/Rz yüzey pürüzlülük değerlerine ulaşmak için yapılan son talaş kaldırma pasları.',
+        params: ['Ra (µm)', 'Rz (µm)', 'rε burun yarıçapı', 'f (mm/dev)', 'ap (mm)'],
+      },
+    ],
+  },
+
+  machineTool: {
+    sectionLabel: 'Tezgâh Zekâsı',
+    title: 'Takım Tezgâhı Mühendisliği',
+    subtitle: 'İş mili performansı, eksen konfigürasyonu, çalışma hacmi ve takım kapasitesini kapsayan yapılandırılmış tezgâh yetkinlik verileri.',
+    machines: [
+      {
+        title: 'CNC Torna',
+        config: 'C ekseni / Motorlu takım',
+        specs: ['İş mili hız aralığı', 'İş mili gücü ve torku', 'Ayna çapı / Bar kapasitesi', 'Z ekseni hareketi', 'X ekseni hareketi', 'Punta'],
+      },
+      {
+        title: '3 Eksenli İşleme Merkezi',
+        config: 'X/Y/Z dikey',
+        specs: ['İş mili hızı (maks.)', 'İş mili gücü / torku', 'Tabla boyutu (X × Y)', 'Z ekseni stroku', 'Takım magazini kapasitesi', 'ATC süresi'],
+      },
+      {
+        title: '5 Eksenli İşleme Merkezi',
+        config: 'X/Y/Z + A/B veya A/C',
+        specs: ['Eş zamanlı 5 eksen', 'Eğim / döner aralık', 'İş mili hızı', 'Tabla çapı / kapasitesi', 'Hacimsel doğruluk', 'Takım magazini'],
+      },
+      {
+        title: 'Yatay İşleme Merkezi',
+        config: 'X/Y/Z + B ekseni palet',
+        specs: ['Palet boyutu', 'İş mili hızı', 'İş mili gücü', 'X/Y/Z hareketi', 'B ekseni çözünürlüğü', 'APC (çift palet)'],
+      },
+      {
+        title: 'Tornalama-Frezeleme Merkezi',
+        config: 'C/Y ekseni + frezeleme mili',
+        specs: ['Ana ve alt iş mili', 'Y ekseni hareketi', 'Frezeleme mili hızı', 'Bar kapasitesi', 'Motorlu takım istasyonları', 'B ekseni (opsiyonel)'],
+      },
+    ],
+    disclaimer: 'Tezgâh kapasite parametreleri örnektir. Gerçek değerler belirli makine modellerine ve konfigürasyonlara bağlıdır.',
+    disclaimerTr: 'Tezgâh kapasite parametreleri örnektir. Gerçek değerler belirli makine modellerine ve konfigürasyonlara bağlıdır.',
+  },
+
+  cuttingTool: {
+    sectionLabel: 'Kesici Takım Mühendisliği',
+    title: 'Kesici Takım Mühendisliği',
+    subtitle: 'Yapılandırılmış kesici takım bilgisi — kesici uç geometrisi, takım tutucular, malzeme kaliteleri, kaplamalar ve uygulama parametreleri.',
+    categories: [
+      {
+        title: 'Tornalama Kesici Ucu',
+        desc: 'Tornalama operasyonları için endekslenebilir karbür uç. Temel parametreler: form (CNMG, DNMG, WNMG), boyut, burun yarıçapı rε, kesme kenarı açısı, kaplama.',
+        attrs: ['ISO form kodu', 'Burun yarıçapı rε (mm)', 'Kalite / kaplama', 'Kesme kenarı açısı', 'Talaş kırıcı'],
+      },
+      {
+        title: 'Tornalama Takım Tutucu',
+        desc: 'Kesici ucu konumlandıran ve tezgâh revolver başına sıkıştıran dış takım tutucu. Kesme yönünü ve yaklaşma açısını belirler.',
+        attrs: ['ISO tanımı', 'Gövde boyutu (h × b)', 'Uç sıkıştırma', 'Yaklaşma açısı κ', 'Yan açı λ'],
+      },
+      {
+        title: 'Endekslenebilir Freze',
+        desc: 'Endekslenebilir uçlu alın veya omuz freze. Birden fazla kesme kenarı, değiştirilebilir uçlar.',
+        attrs: ['Çap D (mm)', 'Uç sayısı z', 'Kesici uç geometrisi', 'İş mili arayüzü', 'Maks. kesme derinliği ap'],
+      },
+      {
+        title: 'Masif Karbür Parmak Freze',
+        desc: 'Hassas frezeleme, profil ve cep işlemleri için masif karbür freze.',
+        attrs: ['Çap D (mm)', 'Diş sayısı z', 'Sarım açısı', 'Köşe yarıçapı rε', 'Kaplama', 'Sap tipi'],
+      },
+      {
+        title: 'Helisel Matkap',
+        desc: 'Delik açma operasyonları için standart matkap. Uç geometrisi ve heliks tasarımı talaş tahliyesini belirler.',
+        attrs: ['Çap D (mm)', 'Uç açısı', 'Heliks geometrisi', 'Kalite / kaplama', 'Tolerans sınıfı'],
+      },
+      {
+        title: 'Boralama Çubuğu',
+        desc: 'Hassas delik büyütme ve bitirme için tek noktalı iç boralama takımı.',
+        attrs: ['Min. delik çapı', 'Maks. derinlik', 'Uç tipi', 'Titreşim sönümleme', 'Gövde arayüzü'],
+      },
+    ],
+  },
+
+  materialRemoval: {
+    sectionLabel: 'Talaş Kaldırma Mekaniği',
+    title: 'Talaş Kaldırma Mekaniği',
+    subtitle: 'Deterministik mühendislik denklemleri, her talaşlı imalat operasyonunda kesme hızı, ilerleme hızı, devir sayısı ve talaş kaldırma oranını yönetir.',
+    turningTitle: 'Tornalama Mekaniği',
+    millingTitle: 'Frezeleme Mekaniği',
+    formulas: [
+      { label: 'Kesme Hızı (Tornalama)', eq: 'Vc = π × D × n / 1000', unit: 'm/dak', vars: 'D = çap [mm], n = devir sayısı [dev/dak]' },
+      { label: 'Devir Sayısı', eq: 'n = 1000 × Vc / (π × D)', unit: 'dev/dak', vars: 'Vc = kesme hızı [m/dak], D = çap [mm]' },
+      { label: 'İlerleme Hızı', eq: 'Vf = f × n', unit: 'mm/dak', vars: 'f = devir başına ilerleme [mm/dev], n = devir sayısı [dev/dak]' },
+      { label: 'Frezeleme İlerleme Hızı', eq: 'Vf = fz × z × n', unit: 'mm/dak', vars: 'fz = diş başına ilerleme [mm/diş], z = diş sayısı, n = devir sayısı [dev/dak]' },
+      { label: 'Talaş Kaldırma Oranı (Tornalama)', eq: 'Q = ap × f × Vc', unit: 'cm³/dak', vars: 'ap = kesme derinliği [mm], f = ilerleme [mm/dev], Vc = kesme hızı [m/dak]' },
+    ],
+    labels: {
+      workpiece: 'İş Parçası',
+      tool: 'Kesici Takım',
+      edge: 'Kesici Kenar',
+      chip: 'Talaş',
+      vc: 'Kesme Hızı Vc',
+      feed: 'İlerleme f',
+      ap: 'Kesme Derinliği ap',
+      force: 'Kesme Kuvveti',
+      fz: 'Diş Başına İlerleme fz',
+      z: 'Diş Sayısı z',
+      ae: 'Kesme Genişliği ae',
+    },
+  },
+
+  cuttingParamFlow: {
+    sectionLabel: 'Kesme Parametresi Seçimi',
+    title: 'Kesme Parametresi Zekâsı',
+    subtitle: 'Malzeme ve operasyondan doğrulanmış kesme verilerine kadar yapılandırılmış parametre seçimi — tahmin değil, deterministik mühendislik.',
+    steps: [
+      { label: 'Malzeme', detail: 'İş parçası malzeme kalitesi, sertlik, işlenebilirlik' },
+      { label: 'Operasyon', detail: 'Tornalama / Frezeleme / Delik Delme / Boralama / Diş Açma' },
+      { label: 'Tezgâh Yetkinliği', detail: 'İş mili gücü, hız aralığı, rijitlik, kararlılık' },
+      { label: 'Kesici Takım', detail: 'Uç kalitesi, geometri, kaplama, burun yarıçapı' },
+      { label: 'Kesme Hızı Vc', detail: 'Vc [m/dak] — malzeme × takım kalitesi önerisi' },
+      { label: 'Devir Sayısı n', detail: 'n = 1000 × Vc / (π × D) [dev/dak]' },
+      { label: 'İlerleme f / fz', detail: 'Devir başına ilerleme [mm/dev] veya diş başına ilerleme [mm/diş]' },
+      { label: 'İlerleme Hızı Vf', detail: 'Vf = f × n veya fz × z × n [mm/dak]' },
+      { label: 'Derinlikler ap / ae', detail: 'Kesme derinliği [mm] ve kesme genişliği [mm]' },
+      { label: 'Takım Ömrü Kontrolü', detail: 'Taylor denklemi — tahmini takım ömrü doğrulaması' },
+      { label: 'Yüzey Pürüzlülüğü', detail: 'Ra = f² / (8 × rε) [µm] — finiş tahmini' },
+      { label: 'Proses Yeterliliği', detail: 'Cp / Cpk değerlendirmesi — tolerans gereksinimlerine karşı' },
+    ],
+  },
+
+  engineeringCharts: {
+    sectionLabel: 'Mühendislik Analizi',
+    title: 'Mühendislik İlişkileri',
+    subtitle: 'Formüle dayalı mühendislik ilişkileri — ölçülmüş saha verisi değildir.',
+    illustrativeNote: 'Illustrative engineering relationship',
+    illustrativeNoteTr: 'Örnek mühendislik ilişkisi',
+    charts: [
+      {
+        title: 'Devir Sayısı / İş Parçası Çapı',
+        desc: 'n = 1000 × Vc / (π × D), sabit Vc\'de. Küçük çaplar, kesme hızını korumak için daha yüksek devir gerektirir.',
+        xLabel: 'Çap D (mm)',
+        yLabel: 'Devir Sayısı n (dev/dak)',
+      },
+      {
+        title: 'İlerleme Hızı / Devir Sayısı',
+        desc: 'Vf = f × n. İlerleme hızı, sabit devir başına ilemede devir sayısıyla doğrusal artar.',
+        xLabel: 'Devir Sayısı n (dev/dak)',
+        yLabel: 'İlerleme Hızı Vf (mm/dak)',
+      },
+      {
+        title: 'Frezeleme İlerleme Hızı — Diş Sayısı Etkisi',
+        desc: 'Vf = fz × z × n. Aynı fz ve n\'de diş sayısı z arttıkça ilerleme hızı orantılı artar.',
+        xLabel: 'Devir Sayısı n (dev/dak)',
+        yLabel: 'İlerleme Hızı Vf (mm/dak)',
+      },
+      {
+        title: 'Kavramsal Takım Aşınma Gelişimi',
+        desc: 'Kavramsal / normalize takım aşınma gelişimi — alıştırma, düzenli aşınma ve hızlanan aşınma fazları.',
+        xLabel: 'İşleme Süresi',
+        yLabel: 'Yan Yüz Aşınması VB',
+      },
+    ],
+  },
+
+  surfaceRoughness: {
+    sectionLabel: 'Yüzey Kalitesi Mühendisliği',
+    title: 'Yüzey Kalitesi Mühendisliği',
+    subtitle: 'Yüzey kalitesi, kesme parametrelerinin, takım geometrisinin ve kesme koşullarının doğrudan bir mühendislik çıktısıdır.',
+    formula: 'Ra ≈ f² / (8 × rε)',
+    formulaDesc: 'Tornalama için teorik yüzey pürüzlülüğü formülü. Ra µm cinsinden, f = devir başına ilerleme [mm/dev], rε = burun yarıçapı [mm].',
+    labels: {
+      ra: 'Ra (aritmetik ortalama pürüzlülük)',
+      rz: 'Rz (ortalama pürüzlülük derinliği)',
+      feedMarks: 'İlerleme izleri',
+      noseRadius: 'Takım burun yarıçapı rε',
+      peakToValley: 'Tepe-vadi yüksekliği',
+      direction: 'Yüzey yönü',
+    },
+    factors: [
+      { title: 'İlerleme Hızı', desc: 'Devir başına ilerleme arttıkça yüzey pürüzlülüğü artar. Ra, f² ile orantılı artar.' },
+      { title: 'Burun Yarıçapı rε', desc: 'Daha büyük burun yarıçapı teorik Ra\'yı düşürür. Aynı ilerleme hızında 0,8 mm yarıçap, 0,4 mm\'den daha iyi yüzey verir.' },
+      { title: 'Takım Durumu', desc: 'Aşınmış kesme kenarı Ra değerlerini artırır. Tutarlı yüzey kalitesi için takım aşınma izlemesi şarttır.' },
+      { title: 'Kesme Hızı', desc: 'Uygun kesme hızlarında birikmiş kenar oluşumu önlenir ve tutarlı yüzey kalitesi sağlanır.' },
+      { title: 'Titreşim / Talaş Sıçraması', desc: 'Tezgâh ve iş parçası rijitliği, elde edilebilecek yüzey kalitesini doğrudan etkiler. Talaş sıçraması karakteristik düzenli izler oluşturur.' },
+    ],
+  },
+
+  processRoute: {
+    sectionLabel: 'Proses Güzergâhı Mühendisliği',
+    title: 'Üretim Proses Güzergâhı',
+    subtitle: 'Sentetik kademeli mil / valf mili için yapılandırılmış proses güzergâhı — uçtan uca üretim sırasını örnekler.',
+    partName: 'Sentetik Kademeli Mil (Ticari olmayan)',
+    operations: [
+      { op: '00', name: 'Hammadde', detail: 'Ø60 × 180mm çubuk, C45 çeliği', icon: 'raw' },
+      { op: '05', name: 'Kesme', detail: 'Boya ve paylara göre kesim', icon: 'saw' },
+      { op: '10', name: 'CNC Kaba Tornalama', detail: 'Kaba tornalama, her iki alın, merkez delme', icon: 'turn' },
+      { op: '20', name: 'CNC Finiş Tornalama', detail: 'Ø50 ±0,02, Ø40 ±0,02, pah, radüs finiş tornalama', icon: 'finish' },
+      { op: '25', name: 'Kanal Açma', detail: 'Ø46 × 4mm segman kanalı', icon: 'groove' },
+      { op: '30', name: 'Delik / İç Özellik İşleme', detail: 'Ø12 eksenel delik × 60mm derinlik', icon: 'drill' },
+      { op: '40', name: 'Çapak Alma', detail: 'Tüm kenar ve çapraz deliklerin manuel çapak alınması', icon: 'deburr' },
+      { op: '50', name: 'Muayene', detail: 'Resme göre boyutsal kontrol. Kritik özellikler için Cp/Cpk kaydı', icon: 'inspect' },
+      { op: '55', name: 'Mühendislik Kaydı', detail: 'İzlenebilirlik kaydı: malzeme sertifikası, takım, parametreler, sonuçlar', icon: 'record' },
+    ],
+    synthetic: 'Yalnızca örnekleme amaçlı sentetik, ticari olmayan geometri.',
+  },
+
+  shopFloor: {
+    sectionLabel: 'Mühendislikten Üretim Sahasına',
+    title: 'Mühendislik Ofisinden Üretim Sahasına',
+    subtitle: 'MachiningPro AI, teknik resimden işlenmiş ve muayene edilmiş parçaya kadar tam izlenebilirlik ile mühendislik bilgi zincirini yapılandırır.',
+    steps: [
+      { label: 'Teknik Resim', desc: 'Boyutlar, toleranslar, yüzey kalitesi ve GD&T içeren teknik resim' },
+      { label: 'CAD Modeli', desc: 'IGES / STEP / DXF içe aktarma, geometri çıkarma, özellik tanıma' },
+      { label: 'Tezgâh Seçimi', desc: 'Yapılandırılmış tezgâh yetkinliği değerlendirmesi ve seçimi' },
+      { label: 'Kesici Takım', desc: 'Uyumluluk kontrolü ile uç, tutucu ve takım konfigürasyonu' },
+      { label: 'Proses Planı', desc: 'Operasyon sırası, bağlama, kesme parametreleri, çevrim süresi' },
+      { label: 'NC İnceleme', desc: 'NC programının proses niyetine göre mühendislik incelemesi' },
+      { label: 'Talaşlı İmalat', desc: 'Onaylı proses verileriyle CNC operatörü tarafından tezgâh çalıştırma' },
+      { label: 'Muayene', desc: 'Resim gereksinimlerine göre boyutsal ve yüzey pürüzlülüğü muayenesi' },
+      { label: 'İzlenebilirlik', desc: 'Tam mühendislik kaydı: malzeme, tezgâh, takım, parametreler, sonuçlar' },
+    ],
   },
 }

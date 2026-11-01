@@ -1,0 +1,107 @@
+.sf-section {
+  background: var(--bg-section);
+  position: relative;
+}
+
+/* Subtle tool path background */
+.sf-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 28px,
+    rgba(34, 119, 230, 0.025) 28px,
+    rgba(34, 119, 230, 0.025) 29px
+  );
+  pointer-events: none;
+}
+
+.sf-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.sf-chain__item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sf-chain__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px 12px;
+  width: 110px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.sf-chain__step:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.sf-chain__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.sf-chain__icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.sf-chain__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+
+.sf-chain__num {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.sf-chain__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.sf-chain__desc {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.sf-chain__arrow {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .sf-chain { flex-direction: column; align-items: stretch; }
+  .sf-chain__item { flex-direction: column; align-items: center; }
+  .sf-chain__step { width: 100%; max-width: 400px; flex-direction: row; text-align: left; }
+  .sf-chain__text { align-items: flex-start; }
+  .sf-chain__arrow {
+    transform: rotate(90deg);
+  }
+}

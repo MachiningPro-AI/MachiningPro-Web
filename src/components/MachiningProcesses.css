@@ -1,0 +1,104 @@
+.mp-section {
+  background: var(--bg-section);
+  position: relative;
+}
+
+/* Subtle machining grid background */
+.mp-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 119, 230, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 119, 230, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.mp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.mp-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card), var(--shadow-glow-blue);
+  transform: translateY(-2px);
+}
+
+.mp-card__visual {
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.mp-process-svg {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.mp-card__body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.mp-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mp-card__desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.mp-card__params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+}
+
+.mp-card__param {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-primary);
+  background: rgba(34, 119, 230, 0.08);
+  border: 1px solid rgba(34, 119, 230, 0.2);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+@media (max-width: 1024px) {
+  .mp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .mp-grid { grid-template-columns: 1fr; }
+  .mp-card__visual { min-height: 80px; }
+}

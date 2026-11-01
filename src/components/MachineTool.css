@@ -1,0 +1,116 @@
+.mt-section {
+  background: var(--bg-section);
+  position: relative;
+}
+
+.mt-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mt-card {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.mt-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.mt-card__visual {
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--color-border);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-card__icon {
+  width: 80px;
+  height: 60px;
+}
+
+.mt-card__icon svg {
+  width: 80px;
+  height: 60px;
+}
+
+.mt-card__body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.mt-card__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mt-card__config {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-primary);
+  background: rgba(34, 119, 230, 0.08);
+  border: 1px solid rgba(34, 119, 230, 0.2);
+  border-radius: 3px;
+  padding: 2px 6px;
+  align-self: flex-start;
+}
+
+.mt-card__specs {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mt-card__spec {
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+  padding-left: 10px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.mt-card__spec::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  color: var(--color-primary);
+}
+
+.mt-disclaimer {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .mt-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .mt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .mt-grid { grid-template-columns: 1fr; }
+}
