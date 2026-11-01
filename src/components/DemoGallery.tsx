@@ -53,12 +53,20 @@ export function DemoGallery() {
               poster={`${BASE}screenshots/machiningpro-3d-feature-view.png`}
               aria-label={demo.videoTitle}
             >
-              <source src={`${BASE}media/machiningpro-ai-demo-en.mp4`} type="video/mp4"/>
+              <source src={`${BASE}media/machiningpro-ai-demo-en-narrated.mp4`} type="video/mp4"/>
+              <track
+                kind="subtitles"
+                srcLang="tr"
+                label="Türkçe"
+                src={`${BASE}media/machiningpro-ai-demo-tr.vtt`}
+                default
+              />
               {t.lang === 'tr'
                 ? 'Tarayıcınız video oynatmayı desteklemiyor.'
                 : 'Your browser does not support video playback.'}
             </video>
           </div>
+          <p className="dg-narration-note">{demo.narrationNote}</p>
         </div>
 
         {/* Real screenshot gallery */}

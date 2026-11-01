@@ -44,6 +44,13 @@
   box-shadow: var(--shadow-card);
 }
 
+.dg-narration-note {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
 .dg-video {
   display: block;
   width: 100%;
