@@ -1,6 +1,8 @@
 import { useLang } from '../LanguageContext'
 import './Hero.css'
 
+const BASE = import.meta.env.BASE_URL
+
 export function Hero() {
   const { t } = useLang()
 
@@ -14,6 +16,14 @@ export function Hero() {
 
       <div className="container hero__inner">
         <div className="hero__content">
+          <div className="hero__logo-wrap">
+            <img
+              src={`${BASE}branding/machiningpro-ai-logo-vertical.png`}
+              alt="MachiningPro AI — Engineering Intelligence for Machining &amp; Manufacturing Planning"
+              className="hero__logo-img"
+              width="220"
+            />
+          </div>
           <div className="hero__badge">{t.hero.badge}</div>
           <h1 className="hero__title" id="hero-heading">{t.hero.headline}</h1>
           <p className="hero__sub">{t.hero.subheadline}</p>

@@ -1,23 +1,13 @@
+import { useState } from 'react'
 import { useLang } from '../LanguageContext'
 import './DemoGallery.css'
 
-const screenPreviews = [
-  { icon: '⊞', color: '#2277e6' },
-  { icon: '⬡', color: '#f97316' },
-  { icon: '◈', color: '#22c55e' },
-  { icon: '⋮⋮', color: '#a78bfa' },
-  { icon: '±', color: '#f97316' },
-  { icon: '⇄', color: '#2277e6' },
-  { icon: '⌛', color: '#22c55e' },
-  { icon: '≡', color: '#2277e6' },
-  { icon: '✓', color: '#a78bfa' },
-  { icon: '☷', color: '#f97316' },
-  { icon: '⟶', color: '#64748b' },
-]
+const BASE = import.meta.env.BASE_URL
 
 export function DemoGallery() {
   const { t } = useLang()
   const { demo } = t
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   return (
     <section className="section dg-section" id="demo" aria-labelledby="demo-heading">
@@ -29,33 +19,105 @@ export function DemoGallery() {
           <p className="section-subtitle">{demo.subtitle}</p>
         </div>
 
+        {/* Primary CTAs */}
         <div className="dg-cta-row">
           <a
             href="https://machiningpro-ai.onrender.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-accent dg-launch-btn"
+            className="btn btn-accent dg-btn"
           >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <polygon points="7,4 14,9 7,14" fill="currentColor"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <polygon points="6,3 13,8 6,13" fill="currentColor"/>
             </svg>
             {demo.ctaLaunch}
           </a>
+          <a href="#dg-video" className="btn btn-outline dg-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 3a1 1 0 0 1 1.5-.87l10 5.5a1 1 0 0 1 0 1.74l-10 5.5A1 1 0 0 1 2 14V3z" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+            {demo.videoTitle}
+          </a>
         </div>
 
-        <div className="dg-screens" role="list" aria-label="Platform screens">
-          {demo.screens.map((screen, i) => (
-            <div key={i} className="dg-screen card" role="listitem">
-              <div className="dg-screen__placeholder" style={{ '--accent': screenPreviews[i % screenPreviews.length].color } as React.CSSProperties}>
-                <span className="dg-screen__icon" aria-hidden="true">{screenPreviews[i % screenPreviews.length].icon}</span>
+        {/* Video section */}
+        <div className="dg-video-block" id="dg-video">
+          <h3 className="dg-video-title">{demo.videoTitle}</h3>
+          <p className="dg-video-desc">{demo.videoDesc}</p>
+          <div className="dg-video-wrap">
+            <video
+              className="dg-video"
+              controls
+              playsInline
+              preload="metadata"
+              poster={`${BASE}screenshots/machiningpro-3d-feature-view.png`}
+              aria-label={demo.videoTitle}
+            >
+              <source src={`${BASE}media/machiningpro-ai-demo-en.mp4`} type="video/mp4"/>
+              {t.lang === 'tr'
+                ? 'Tarayıcınız video oynatmayı desteklemiyor.'
+                : 'Your browser does not support video playback.'}
+            </video>
+          </div>
+        </div>
+
+        {/* Real screenshot gallery */}
+        <div className="dg-gallery">
+          <button
+            className="dg-screenshot-card"
+            onClick={() => setLightboxOpen(true)}
+            aria-label={demo.screenshotLabel}
+          >
+            <div className="dg-screenshot-img-wrap">
+              <img
+                src={`${BASE}screenshots/machiningpro-3d-feature-view.png`}
+                alt={demo.screenshotAlt}
+                className="dg-screenshot-img"
+                loading="lazy"
+              />
+              <div className="dg-screenshot-overlay" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <circle cx="16" cy="16" r="15" fill="rgba(0,0,0,0.5)"/>
+                  <path d="M11 11h10M21 11v10M11 21l10-10" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
               </div>
-              <span className="dg-screen__label">{screen}</span>
             </div>
-          ))}
+            <div className="dg-screenshot-info">
+              <span className="dg-screenshot-label">{demo.screenshotLabel}</span>
+              <span className="dg-screenshot-desc">{demo.screenshotDesc}</span>
+            </div>
+          </button>
         </div>
 
-        <p className="dg-note">{demo.note}</p>
+        <p className="dg-more-note">{demo.moreScreensNote}</p>
       </div>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <div
+          className="dg-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={demo.screenshotLabel}
+          onClick={() => setLightboxOpen(false)}
+        >
+          <button
+            className="dg-lightbox__close"
+            onClick={() => setLightboxOpen(false)}
+            aria-label="Close"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6 6l12 12M18 6l-12 12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
+          <img
+            src={`${BASE}screenshots/machiningpro-3d-feature-view.png`}
+            alt={demo.screenshotAlt}
+            className="dg-lightbox__img"
+            onClick={e => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   )
 }

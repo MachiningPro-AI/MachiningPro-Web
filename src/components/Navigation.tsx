@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useLang } from '../LanguageContext'
 import './Navigation.css'
 
+const BASE = import.meta.env.BASE_URL
+
 export function Navigation() {
   const { t, lang, toggle } = useLang()
   const [scrolled, setScrolled] = useState(false)
@@ -26,13 +28,15 @@ export function Navigation() {
     <header className={`nav${scrolled ? ' nav--scrolled' : ''}`} role="banner">
       <div className="nav__inner container">
         <a href="#top" className="nav__logo" aria-label="MachiningPro AI — Home">
-          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-            <rect width="32" height="32" rx="6" fill="#0a0f1e"/>
-            <text x="3" y="24" fontFamily="Inter,Arial,sans-serif" fontWeight="800" fontSize="22" fill="#2277e6">M</text>
-            <circle cx="25" cy="8" r="4.5" fill="none" stroke="#f97316" strokeWidth="1.5"/>
-            <circle cx="25" cy="8" r="1.5" fill="#f97316"/>
-          </svg>
-          <span className="nav__brand">MachiningPro <span className="nav__brand-ai">AI</span></span>
+          <span className="nav__logo-pill">
+            <img
+              src={`${BASE}branding/machiningpro-ai-logo.png`}
+              alt="MachiningPro AI logo"
+              className="nav__logo-img"
+              height="26"
+              width="auto"
+            />
+          </span>
         </a>
 
         <nav className={`nav__links${menuOpen ? ' nav__links--open' : ''}`} aria-label="Main navigation">

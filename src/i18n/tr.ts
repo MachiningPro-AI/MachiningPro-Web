@@ -175,22 +175,14 @@ export const tr: Translations = {
   demo: {
     sectionLabel: 'Platform Önizlemesi',
     title: 'Gerçek Mühendislik Demosu',
-    subtitle: 'MachiningPro AI\'yi canlı uygulama üzerinden keşfedin — gerçek mühendislik iş akışlarını görün.',
-    ctaLaunch: 'Canlı Uygulamayı Aç',
-    note: 'Ekran görüntüleri platform mühendislik önizleme aşamasında ilerledikçe yayımlanacaktır.',
-    screens: [
-      'Kontrol Paneli',
-      'CAD / IGES Aktarımı',
-      '3D Parça Görünümü',
-      'Özellik Ağacı',
-      'GD&T Analizi',
-      'Proses Rotaları',
-      'Çevrim Süresi',
-      'Üretim Planı',
-      'Muayene Planı',
-      'Kontrol Planı',
-      'İzlenebilirlik Dışa Aktarımı',
-    ],
+    subtitle: 'MachiningPro AI\'yi canlı uygulama üzerinden keşfedin — gerçek mühendislik iş akışlarını deneyimleyin.',
+    ctaLaunch: 'Canlı Demoyu Başlat',
+    videoTitle: 'Mühendislik Demosunu İzle',
+    videoDesc: 'CAD aktarımından özellik tanımaya, GD&T analizinden proses planlamaya ve izlenebilirliğe kadar tam MachiningPro AI mühendislik iş akışını görün.',
+    screenshotAlt: 'MachiningPro AI CAD ve 3D mühendislik çalışma alanı — özellik ağacı, 3D parça görünümü ve proses özellikleri paneli',
+    screenshotLabel: '3D Özellik Görünümü ve Proses Planlaması',
+    screenshotDesc: 'Özellik ağacı, parça geometrisi, tornalama operasyonu ve proses özellikleri panelini gösteren MachiningPro AI 3D çalışma alanı.',
+    moreScreensNote: 'Kontrol paneli, GD&T analizi, üretim planı, muayene planı, kontrol planı ve izlenebilirlik dışa aktarımı gibi ek ekranlar canlı uygulamada mevcuttur.',
   },
 
   intelligence: {
@@ -237,8 +229,8 @@ export const tr: Translations = {
 
   value: {
     sectionLabel: 'İş Değeri',
-    title: 'Uydurulmuş Rakamlar Olmadan Mühendislik Değeri',
-    subtitle: 'MachiningPro AI; fabrikasyon istatistikler olmaksızın ölçülebilir mühendislik ve operasyonel iyileştirmeler sağlar.',
+    title: 'Veriye Dayalı ve Ölçülebilir Mühendislik Değeri',
+    subtitle: 'MachiningPro AI, doğrulanabilir mühendislik çıktıları, yapılandırılmış proses bilgisi ve izlenebilir karar desteğiyle operasyonel iyileştirmeyi destekler.',
     items: [
       {
         title: 'Daha Hızlı Mühendislik Değerlendirmesi',
@@ -294,7 +286,7 @@ export const tr: Translations = {
     title: 'MachiningPro AI\'yi Deneyimleyin',
     subtitle: 'Mühendislik önizlemesi yayındadır. Platformu kendi verilerinizle keşfedin.',
     ctaPrimary: 'MachiningPro AI\'yi Başlat',
-    ctaSecondary: 'Mühendislik Demosu Talep Et',
+    ctaSecondary: 'Mühendislik Demosunu İzle',
     maturity: 'Mühendislik Önizlemesi · v0.5.0-demo · Üretime Hazır Değil',
   },
 

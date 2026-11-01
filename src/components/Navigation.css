@@ -25,9 +25,23 @@
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
   text-decoration: none;
+}
+
+.nav__logo-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 3px 10px;
+  border-radius: 6px;
+  line-height: 0;
+}
+
+.nav__logo-img {
+  height: 26px;
+  width: auto;
+  display: block;
 }
 
 .nav__brand {

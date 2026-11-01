@@ -1,6 +1,8 @@
 import { useLang } from '../LanguageContext'
 import './Footer.css'
 
+const BASE = import.meta.env.BASE_URL
+
 export function Footer() {
   const { t, lang, toggle } = useLang()
   const { footer } = t
@@ -10,14 +12,14 @@ export function Footer() {
       <div className="container footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <div className="footer__logo">
-              <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-                <rect width="32" height="32" rx="6" fill="#0a0f1e"/>
-                <text x="3" y="24" fontFamily="Inter,Arial,sans-serif" fontWeight="800" fontSize="22" fill="#2277e6">M</text>
-                <circle cx="25" cy="8" r="4.5" fill="none" stroke="#f97316" strokeWidth="1.5"/>
-                <circle cx="25" cy="8" r="1.5" fill="#f97316"/>
-              </svg>
-              <span className="footer__logo-text">MachiningPro <span>AI</span></span>
+            <div className="footer__logo-pill">
+              <img
+                src={`${BASE}branding/machiningpro-ai-logo.png`}
+                alt="MachiningPro AI"
+                className="footer__logo-img"
+                width="160"
+                height="auto"
+              />
             </div>
             <p className="footer__tagline">{footer.tagline}</p>
           </div>

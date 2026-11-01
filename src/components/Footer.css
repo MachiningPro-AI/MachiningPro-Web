@@ -24,20 +24,19 @@
   max-width: 360px;
 }
 
-.footer__logo {
-  display: flex;
+.footer__logo-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: 8px;
+  line-height: 0;
 }
 
-.footer__logo-text {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.footer__logo-text span {
-  color: var(--color-accent);
+.footer__logo-img {
+  width: 160px;
+  height: auto;
+  display: block;
 }
 
 .footer__tagline {

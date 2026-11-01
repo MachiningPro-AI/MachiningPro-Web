@@ -173,22 +173,14 @@ export const en = {
   demo: {
     sectionLabel: 'Platform Preview',
     title: 'Real Engineering Demo',
-    subtitle: 'Explore MachiningPro AI through the live application — see real engineering workflows in action.',
-    ctaLaunch: 'Open Live Application',
-    note: 'Screenshots will be published as the platform progresses through engineering preview.',
-    screens: [
-      'Dashboard',
-      'CAD / IGES Import',
-      '3D Part View',
-      'Feature Tree',
-      'GD&T Analysis',
-      'Process Routes',
-      'Cycle Time',
-      'Manufacturing Plan',
-      'Inspection Plan',
-      'Control Plan',
-      'Traceability Export',
-    ],
+    subtitle: 'Explore MachiningPro AI through the live application and experience real engineering workflows.',
+    ctaLaunch: 'Launch Live Demo',
+    videoTitle: 'Watch Engineering Demo',
+    videoDesc: 'See the full MachiningPro AI engineering workflow — from CAD import through feature recognition, GD&T analysis, process planning and traceability.',
+    screenshotAlt: 'MachiningPro AI 3D feature view — engineering workspace with feature tree, 3D part rendering and process properties',
+    screenshotLabel: '3D Feature View & Process Planning',
+    screenshotDesc: 'MachiningPro AI 3D workspace showing feature tree, part geometry, turning operation and process properties panel.',
+    moreScreensNote: 'Additional screens — dashboard, GD&T analysis, manufacturing plan, inspection plan, control plan and traceability export — are accessible in the live application.',
   },
 
   intelligence: {
@@ -235,8 +227,8 @@ export const en = {
 
   value: {
     sectionLabel: 'Business Value',
-    title: 'Engineering Value Without Invented Numbers',
-    subtitle: 'MachiningPro AI creates measurable engineering and operational improvements — without fabricated statistics.',
+    title: 'Data-Driven, Measurable Engineering Value',
+    subtitle: 'MachiningPro AI supports operational improvement through verifiable engineering outputs, structured process knowledge and traceable decision support.',
     items: [
       {
         title: 'Faster Engineering Evaluation',
@@ -292,7 +284,7 @@ export const en = {
     title: 'Experience MachiningPro AI',
     subtitle: 'The engineering preview is live. Explore the platform with your own data.',
     ctaPrimary: 'Launch MachiningPro AI',
-    ctaSecondary: 'Request Engineering Demo',
+    ctaSecondary: 'Watch Engineering Demo',
     maturity: 'Engineering Preview · v0.5.0-demo · Not Production Ready',
   },
 
