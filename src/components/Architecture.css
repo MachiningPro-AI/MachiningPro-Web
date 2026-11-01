@@ -1,0 +1,68 @@
+.arch-section { background: var(--bg-base); }
+
+.arch-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.arch-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.arch-layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arch-layer__box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  border: 1.5px solid;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: background 0.2s;
+}
+
+.arch-layer__box:hover { background: var(--bg-card-hover); }
+
+.arch-layer__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.arch-layer__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.arch-layer__label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.arch-layer__desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.arch-layer__connector {
+  display: flex;
+  justify-content: center;
+  margin: 2px 0;
+}
+
+@media (max-width: 900px) {
+  .arch-split { grid-template-columns: 1fr; gap: 40px; }
+}

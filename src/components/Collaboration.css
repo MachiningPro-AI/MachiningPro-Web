@@ -1,0 +1,54 @@
+.collab-section { background: var(--bg-surface); }
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.collab-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.collab-card:hover .collab-card__icon { color: var(--color-accent); }
+
+.collab-card__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+
+.collab-card__icon svg { width: 100%; height: 100%; }
+
+.collab-card__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.collab-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.collab-card__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-top: 4px;
+}
+
+.collab-card__link:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) { .collab-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .collab-grid { grid-template-columns: 1fr; } }
